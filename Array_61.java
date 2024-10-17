@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Array_61 {
+
+    // Prefix Sum problem solving without prefix array (InPlace).
+
+    public static void print(int a[]) {
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+
+    public static void prefixSum(int a[]) {
+
+        for (int i = 1; i < a.length; i++) {
+            a[i] = a[i - 1] + a[i];
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size : ");
+        int size = sc.nextInt();
+        int a[] = new int[size];
+        System.out.println("Enter the element in array  : ");
+        for (int i = 0; i < a.length; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        prefixSum(a);
+        System.out.println("The prefix sum array is : ");
+        print(a);
+        sc.close();
+    }
+}
